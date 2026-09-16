@@ -1111,4 +1111,323 @@ Atlas atlas-104b3m-shard-0 [primary] PCEA24CA019> db.products.find({productId : 
     seller: { sellerId: 1020, sellerName: 'Seller 20' },
     createdAt: ISODate('2026-09-15T08:18:05.821Z')
   }
+] 
+Atlas atlas-104b3m-shard-0 [primary] PCEA24CA019> db.products.updateMany(
+|   { brand: "Dell" },
+|   { $inc: { price: 1000 } }
+| )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 32,
+  modifiedCount: 32,
+  upsertedCount: 0
+}
+Atlas atlas-104b3m-shard-0 [primary] PCEA24CA019> db.products.find({ brand: "Dell" })
+[
+  {
+    _id: ObjectId('6aa8fe1b773d42ff3b112f8a'),
+    productId: 3,
+    productName: 'Product 3',
+    category: 'Keyboard',
+    brand: 'Dell',
+    price: 3500,
+    stock: 13,
+    rating: 3,
+    inStock: true,
+    tags: [ 'electronics', 'new' ],
+    seller: { sellerId: 1003, sellerName: 'Seller 3' },
+    createdAt: ISODate('2026-09-15T08:13:15.258Z')
+  },
+  {
+    _id: ObjectId('6aa8fe1b773d42ff3b112f8d'),
+    productId: 6,
+    productName: 'Product 6',
+    category: 'Mobile',
+    brand: 'Dell',
+    price: 5000,
+    stock: 16,
+    rating: 3,
+    inStock: true,
+    tags: [ 'electronics', 'featured' ],
+    seller: { sellerId: 1006, sellerName: 'Seller 6' },
+    createdAt: ISODate('2026-09-15T08:13:15.991Z')
+  },
+  {
+    _id: ObjectId('6aa8fe24773d42ff3b112f90'),
+    productId: 9,
+    productName: 'Product 9',
+    category: 'Mouse',
+    brand: 'Dell',
+    price: 6500,
+    stock: 19,
+    rating: 3,
+    inStock: true,
+    tags: [ 'electronics', 'new' ],
+    seller: { sellerId: 1009, sellerName: 'Seller 9' },
+    createdAt: ISODate('2026-09-15T08:13:24.957Z')
+  },
+  {
+    _id: ObjectId('6aa8fe26773d42ff3b112f93'),
+    productId: 12,
+    productName: 'Product 12',
+    category: 'Headphones',
+    brand: 'Dell',
+    price: 8000,
+    stock: 22,
+    rating: 3,
+    inStock: false,
+    tags: [ 'electronics', 'featured' ],
+    seller: { sellerId: 1012, sellerName: 'Seller 12' },
+    createdAt: ISODate('2026-09-15T08:13:26.637Z')
+  },
+  {
+    _id: ObjectId('6aa8fe27773d42ff3b112f96'),
+    productId: 15,
+    productName: 'Product 15',
+    category: 'Laptop',
+    brand: 'Dell',
+    price: 9500,
+    stock: 25,
+    rating: 3,
+    inStock: true,
+    tags: [ 'electronics', 'new' ],
+    seller: { sellerId: 1015, sellerName: 'Seller 15' },
+    createdAt: ISODate('2026-09-15T08:13:27.529Z')
+  },
+  {
+    _id: ObjectId('6aa8fe28773d42ff3b112f99'),
+    productId: 18,
+    productName: 'Product 18',
+    category: 'Keyboard',
+    brand: 'Dell',
+    price: 11000,
+    stock: 28,
+    rating: 3,
+    inStock: true,
+    tags: [ 'electronics', 'featured' ],
+    seller: { sellerId: 1018, sellerName: 'Seller 18' },
+    createdAt: ISODate('2026-09-15T08:13:28.202Z')
+  },
+  {
+    _id: ObjectId('6aa8fe29773d42ff3b112f9c'),
+    productId: 21,
+    productName: 'Product 21',
+    category: 'Mobile',
+    brand: 'Dell',
+    price: 12500,
+    stock: 31,
+    rating: 3,
+    inStock: true,
+    tags: [ 'electronics', 'new' ],
+    seller: { sellerId: 1021, sellerName: 'Seller 21' },
+    createdAt: ISODate('2026-09-15T08:13:29.375Z')
+  },
+  {
+    _id: ObjectId('6aa8fe2a773d42ff3b112f9f'),
+    productId: 24,
+    productName: 'Product 24',
+    category: 'Mouse',
+    brand: 'Dell',
+    price: 14000,
+    stock: 34,
+    rating: 3,
+    inStock: false,
+    tags: [ 'electronics', 'featured' ],
+    seller: { sellerId: 1024, sellerName: 'Seller 24' },
+    createdAt: ISODate('2026-09-15T08:13:30.218Z')
+  },
+  {
+    _id: ObjectId('6aa8fe2b773d42ff3b112fa2'),
+    productId: 27,
+    productName: 'Product 27',
+    category: 'Headphones',
+    brand: 'Dell',
+    price: 15500,
+    stock: 37,
+    rating: 3,
+    inStock: true,
+    tags: [ 'electronics', 'new' ],
+    seller: { sellerId: 1027, sellerName: 'Seller 27' },
+    createdAt: ISODate('2026-09-15T08:13:31.556Z')
+  },
+  {
+    _id: ObjectId('6aa8fe2f773d42ff3b112fa5'),
+    productId: 30,
+    productName: 'Product 30',
+    category: 'Laptop',
+    brand: 'Dell',
+    price: 17000,
+    stock: 40,
+    rating: 3,
+    inStock: true,
+    tags: [ 'electronics', 'featured' ],
+    seller: { sellerId: 1030, sellerName: 'Seller 30' },
+    createdAt: ISODate('2026-09-15T08:13:35.444Z')
+  },
+  {
+    _id: ObjectId('6aa8fe30773d42ff3b112fa8'),
+    productId: 33,
+    productName: 'Product 33',
+    category: 'Keyboard',
+    brand: 'Dell',
+    price: 18500,
+    stock: 43,
+    rating: 3,
+    inStock: true,
+    tags: [ 'electronics', 'new' ],
+    seller: { sellerId: 1033, sellerName: 'Seller 33' },
+    createdAt: ISODate('2026-09-15T08:13:36.248Z')
+  },
+  {
+    _id: ObjectId('6aa8fe31773d42ff3b112fab'),
+    productId: 36,
+    productName: 'Product 36',
+    category: 'Mobile',
+    brand: 'Dell',
+    price: 20000,
+    stock: 46,
+    rating: 3,
+    inStock: false,
+    tags: [ 'electronics', 'featured' ],
+    seller: { sellerId: 1036, sellerName: 'Seller 36' },
+    createdAt: ISODate('2026-09-15T08:13:37.888Z')
+  },
+  {
+    _id: ObjectId('6aa8fe34773d42ff3b112fae'),
+    productId: 39,
+    productName: 'Product 39',
+    category: 'Mouse',
+    brand: 'Dell',
+    price: 21500,
+    stock: 49,
+    rating: 3,
+    inStock: true,
+    tags: [ 'electronics', 'new' ],
+    seller: { sellerId: 1039, sellerName: 'Seller 39' },
+    createdAt: ISODate('2026-09-15T08:13:40.239Z')
+  },
+  {
+    _id: ObjectId('6aa8fe35773d42ff3b112fb1'),
+    productId: 42,
+    productName: 'Product 42',
+    category: 'Headphones',
+    brand: 'Dell',
+    price: 23000,
+    stock: 52,
+    rating: 3,
+    inStock: true,
+    tags: [ 'electronics', 'featured' ],
+    seller: { sellerId: 1042, sellerName: 'Seller 42' },
+    createdAt: ISODate('2026-09-15T08:13:41.310Z')
+  },
+  {
+    _id: ObjectId('6aa8fe38773d42ff3b112fb4'),
+    productId: 45,
+    productName: 'Product 45',
+    category: 'Laptop',
+    brand: 'Dell',
+    price: 24500,
+    stock: 55,
+    rating: 3,
+    inStock: true,
+    tags: [ 'electronics', 'new' ],
+    seller: { sellerId: 1045, sellerName: 'Seller 45' },
+    createdAt: ISODate('2026-09-15T08:13:44.260Z')
+  },
+  {
+    _id: ObjectId('6aa8fe3b773d42ff3b112fb7'),
+    productId: 48,
+    productName: 'Product 48',
+    category: 'Keyboard',
+    brand: 'Dell',
+    price: 26000,
+    stock: 58,
+    rating: 3,
+    inStock: false,
+    tags: [ 'electronics', 'featured' ],
+    seller: { sellerId: 1048, sellerName: 'Seller 48' },
+    createdAt: ISODate('2026-09-15T08:13:47.078Z')
+  },
+  {
+    _id: ObjectId('6aa8ff3a773d42ff3b112fbc'),
+    productId: 3,
+    productName: 'Product 3',
+    category: 'Keyboard',
+    brand: 'Dell',
+    price: 3500,
+    stock: 13,
+    rating: 3,
+    inStock: true,
+    tags: [ 'electronics', 'new' ],
+    seller: { sellerId: 1003, sellerName: 'Seller 3' },
+    createdAt: ISODate('2026-09-15T08:18:02.472Z')
+  },
+  {
+    _id: ObjectId('6aa8ff3b773d42ff3b112fbf'),
+    productId: 6,
+    productName: 'Product 6',
+    category: 'Mobile',
+    brand: 'Dell',
+    price: 5000,
+    stock: 16,
+    rating: 3,
+    inStock: true,
+    tags: [ 'electronics', 'featured' ],
+    seller: { sellerId: 1006, sellerName: 'Seller 6' },
+    createdAt: ISODate('2026-09-15T08:18:03.005Z')
+  },
+  {
+    _id: ObjectId('6aa8ff3b773d42ff3b112fc2'),
+    productId: 9,
+    productName: 'Product 9',
+    category: 'Mouse',
+    brand: 'Dell',
+    price: 6500,
+    stock: 19,
+    rating: 3,
+    inStock: true,
+    tags: [ 'electronics', 'new' ],
+    seller: { sellerId: 1009, sellerName: 'Seller 9' },
+    createdAt: ISODate('2026-09-15T08:18:03.439Z')
+  },
+  {
+    _id: ObjectId('6aa8ff3c773d42ff3b112fc5'),
+    productId: 12,
+    productName: 'Product 12',
+    category: 'Headphones',
+    brand: 'Dell',
+    price: 8000,
+    stock: 22,
+    rating: 3,
+    inStock: false,
+    tags: [ 'electronics', 'featured' ],
+    seller: { sellerId: 1012, sellerName: 'Seller 12' },
+    createdAt: ISODate('2026-09-15T08:18:04.279Z')
+  }
 ]
+Type "it" for more
+Atlas atlas-104b3m-shard-0 [primary] PCEA24CA019> db.products.deleteOne(
+|   { productId: 5 }
+| )
+{ acknowledged: true, deletedCount: 1 }
+Atlas atlas-104b3m-shard-0 [primary] PCEA24CA019> db.products.findOne({ productId: 5 })
+{
+  _id: ObjectId('6aa8ff3a773d42ff3b112fbe'),
+  productId: 5,
+  productName: 'Product 5',
+  category: 'Laptop',
+  brand: 'HP',
+  price: 3500,
+  stock: 15,
+  rating: 4,
+  inStock: true,
+  tags: [ 'electronics', 'new' ],
+  seller: { sellerId: 1005, sellerName: 'Seller 5' },
+  createdAt: ISODate('2026-09-15T08:18:02.889Z')
+}
+Atlas atlas-104b3m-shard-0 [primary] PCEA24CA019> db.products.deleteMany(
+|   { category: "Mouse" }
+| )
+{ acknowledged: true, deletedCount: 20 }
+Atlas atlas-104b3m-shard-0 [primary] PCEA24CA019> db.products.find({ category: "Mouse" })
