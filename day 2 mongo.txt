@@ -1,0 +1,164 @@
+Atlas atlas-104b3m-shard-0 [primary] PCEA24CA019> db.createcollection("products")
+TypeError: db.createcollection is not a function
+Atlas atlas-104b3m-shard-0 [primary] PCEA24CA019>  db.createollection("products")
+Atlas atlas-104b3m-shard-0 [primary] PCEA24CA019> db.createCollection("products")
+Uncaught:
+MongoServerSelectionError: getaddrinfo ENOTFOUND ac-28kwaq2-shard-00-00.u5gi0my.mongodb.net
+Caused by:
+MongoNetworkError: getaddrinfo ENOTFOUND ac-28kwaq2-shard-00-00.u5gi0my.mongodb.net
+Caused by:
+Error: getaddrinfo ENOTFOUND ac-28kwaq2-shard-00-00.u5gi0my.mongodb.net
+Atlas atlas-104b3m-shard-0 [secondary] PCEA24CA019> db.createCollection("products")
+{ ok: 1 }
+Atlas atlas-104b3m-shard-0 [primary] PCEA24CA019> for (let i = 1; i <= 50; i++) {
+|
+|     db.products.insertOne({
+|         productId: i,
+|         productName: "Product " + i ,
+|         category:
+|             i % 5 === 0 ? "Laptop" :
+|             i % 5 === 1 ? "Mobile" :
+|             i % 5 === 2 ? "Headphones" :
+|             i % 5 === 3 ? "Keyboard" :
+|                           "Mouse",
+|
+|         brand:
+|             i % 3 === 0 ? "Dell" :
+|             i % 3 === 1 ? "Samsung" :
+|                           "HP",
+|
+|         price: 1000 + (i * 500),
+|
+|         stock: 10 + i,
+|
+|         rating: 3 + ((i % 3) * 0.5),
+|
+|         inStock: i % 4 !== 0,
+|
+|         tags: [
+|             "electronics",
+|             i % 2 === 0 ? "featured" : "new"
+|         ],
+|
+|         seller: {
+|             sellerId: 1000 + i,
+|             sellerName: "Seller " + i
+|         },
+|
+|         createdAt: new Date()
+|     });
+| }
+{
+  acknowledged: true,
+  insertedId: ObjectId('6aa8ff44773d42ff3b112feb')
+}
+Atlas atlas-104b3m-shard-0 [primary] PCEA24CA019> db.products.find({productIproductId:20})
+[
+  {
+    _id: ObjectId('6aa8fe28773d42ff3b112f9b'),
+    productId: 20,
+    productName: 'Product 20',
+    category: 'Laptop',
+    brand: 'HP',
+    price: 11000,
+    stock: 30,
+    rating: 4,
+    inStock: false,
+    tags: [ 'electronics', 'featured' ],
+    seller: { sellerId: 1020, sellerName: 'Seller 20' },
+    createdAt: ISODate('2026-09-15T08:13:28.612Z')
+  },
+  {
+    _id: ObjectId('6aa8ff3d773d42ff3b112fcd'),
+    productId: 20,
+    productName: 'Product 20',
+    category: 'Laptop',
+    brand: 'HP',
+    price: 11000,
+    stock: 30,
+    rating: 4,
+    inStock: false,
+    tags: [ 'electronics', 'featured' ],
+    seller: { sellerId: 1020, sellerName: 'Seller 20' },
+    createdAt: ISODate('2026-09-15T08:18:05.821Z')
+  }
+]
+Atlas atlas-104b3m-shard-0 [primary] PCEA24CA019> df.products.find({productId : 20})
+ReferenceError: df is not defined
+Atlas atlas-104b3m-shard-0 [primary] PCEA24CA019> db.products.find({productId : 20})
+Uncaught:
+MongoServerSelectionError: getaddrinfo ENOTFOUND ac-28kwaq2-shard-00-00.u5gi0my.mongodb.net
+Caused by:
+MongoNetworkError: getaddrinfo ENOTFOUND ac-28kwaq2-shard-00-00.u5gi0my.mongodb.net
+Caused by:
+Error: getaddrinfo ENOTFOUND ac-28kwaq2-shard-00-00.u5gi0my.mongodb.net
+Atlas atlas-104b3m-shard-0 [secondary] PCEA24CA019> db.products.find({productId : 20})
+[
+  {
+    _id: ObjectId('6aa8fe28773d42ff3b112f9b'),
+    productId: 20,
+    productName: 'Product 20',
+    category: 'Laptop',
+    brand: 'HP',
+    price: 11000,
+    stock: 30,
+    rating: 4,
+    inStock: false,
+    tags: [ 'electronics', 'featured' ],
+    seller: { sellerId: 1020, sellerName: 'Seller 20' },
+    createdAt: ISODate('2026-09-15T08:13:28.612Z')
+  },
+  {
+    _id: ObjectId('6aa8ff3d773d42ff3b112fcd'),
+    productId: 20,
+    productName: 'Product 20',
+    category: 'Laptop',
+    brand: 'HP',
+    price: 11000,
+    stock: 30,
+    rating: 4,
+    inStock: false,
+    tags: [ 'electronics', 'featured' ],
+    seller: { sellerId: 1020, sellerName: 'Seller 20' },
+    createdAt: ISODate('2026-09-15T08:18:05.821Z')
+  }
+]
+Atlas atlas-104b3m-shard-0 [primary] PCEA24CA019> db.products.updateOne({productId : 20} , {$addToSet : {tags : "sale"} } )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Atlas atlas-104b3m-shard-0 [primary] PCEA24CA019> db.products.find({productId : 20 })
+[
+  {
+    _id: ObjectId('6aa8fe28773d42ff3b112f9b'),
+    productId: 20,
+    productName: 'Product 20',
+    category: 'Laptop',
+    brand: 'HP',
+    price: 11000,
+    stock: 30,
+    rating: 4,
+    inStock: false,
+    tags: [ 'electronics', 'featured', 'sale' ],
+    seller: { sellerId: 1020, sellerName: 'Seller 20' },
+    createdAt: ISODate('2026-09-15T08:13:28.612Z')
+  },
+  {
+    _id: ObjectId('6aa8ff3d773d42ff3b112fcd'),
+    productId: 20,
+    productName: 'Product 20',
+    category: 'Laptop',
+    brand: 'HP',
+    price: 11000,
+    stock: 30,
+    rating: 4,
+    inStock: false,
+    tags: [ 'electronics', 'featured' ],
+    seller: { sellerId: 1020, sellerName: 'Seller 20' },
+    createdAt: ISODate('2026-09-15T08:18:05.821Z')
+  }
+]
